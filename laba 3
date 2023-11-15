@@ -1,0 +1,34 @@
+"""
+12.	Ввести строку, вывести слово, содержащее наибольшее количество гласных букв.
+
+Доп. задание: Ввести строку и символ, вывести слово, содержащее наибольшее количество заданного символа.
+"""
+
+offer = input('Введите предложение и символ: ')
+symbol = input('Введите символ, который хотите найти: ')
+arr = tuple(offer.split())
+letters = "aeiouyAEIOUYауоыиэяюёеАУОЫИЭЯЮЁЕ"
+
+cnt = 0
+max_wor_cnt = 0
+max_sym_cnt = 0
+result_words = ''
+result_symbol = ''
+
+for word in arr:
+    cnt = 0
+    for i in letters:
+        if word.count(i) != 0:
+            cnt += word.count(i)
+            if cnt > max_wor_cnt:
+                max_wor_cnt = cnt
+                result_words = word
+    for s in symbol:
+        if word.count(s) != 0:
+            cnt += word.count(s)
+            if cnt > max_sym_cnt:
+                max_sym_cnt = cnt
+                result_symbol = word
+
+print('Cлово с наибольшим кол-ом гласных: ' + result_words)
+print('Cлово с наибольшим кол-ом символа: ' + result_symbol)
